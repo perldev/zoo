@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load zoostatic %}{% load jstemplate %}
+
+{% block title %}Task list{% endblock %}
+
+{% block content %}
+<div id="task-list" class="list-group">
+  <div class="list-group-item task-item hide-soft">
+    <p class="disabled">There are no tasks yet.</p>
+  </div>
+</div>
+
+{% handlebarsjs 'task-item-template' %}
+
+{% endblock %}
+
+
+{% block page-scripts %}
+  <script src="{% static 'zoo/task-list.js' %}"></script>
+{% endblock %}

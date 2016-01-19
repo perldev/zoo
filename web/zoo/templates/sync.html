@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load zoostatic %}{% load jstemplate %}
+
+{% block title %}Zoo{% endblock %}
+
+{% block content %}
+
+<div class="page-header" style="border: 0;">
+  <h1 class="text-center">
+    <i class="fa fa-cog fa-spin text-muted"></i>
+    Starting sync task. Please wait.
+  </h1>
+</div>
+
+
+{% endblock %}
+
+
+{% block page-scripts %}
+  <script src="{% static 'zoo/sync.js' %}"></script>
+{% endblock %}

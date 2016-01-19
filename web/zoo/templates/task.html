@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load zoostatic %}
+{% load jstemplate %}
+
+
+{% block title %}Task {{ task.title }}{% endblock %}
+
+
+{% block content %}
+<div id="task-placeholder"></div>
+
+
+<div style="position: relative">
+  <textarea id="clipboard-area" style="position: absolute; top: -10000; left: -10000;"></textarea>
+</div>
+<div id="task-log-placeholder">
+  <button id="copy-log" type="button" class="btn btn-default btn-sm"><i class="fa fa-copy"></i> Copy</button>
+  <a href="{% url 'server' %}" id="go-to-node" type="button" class="btn btn-success hidden"><i class="fa fa-globe"></i> Go to site</a>
+  <div id="task-log" class="task-log-flat"></div>
+</div>
+
+{% handlebarsjs 'task-template' %}
+{% handlebarsjs 'task-log-template' %}
+
+{% endblock %}
+
+{% block page-scripts %}
+<script>window.task_id={{ task.id }};</script>
+<script src="{% static 'zoo/task.js' %}"></script>
+{% endblock %}
